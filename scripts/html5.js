@@ -74,6 +74,19 @@ H5P.VideoHtml5 = (function ($) {
     if (options.poster) {
       video.poster = options.poster;
     }
+
+    //Create play Button Object 
+    var playButton = document.createElement('div');
+
+    // Show and add events if enabled
+    if(options.largePlay) {
+      playButton.className = 'h5p-video-play-button';
+
+      $(playButton).on('click', function(){
+        video.play();
+      })      
+    }
+
     /**
      * Helps registering events.
      *
@@ -171,6 +184,7 @@ H5P.VideoHtml5 = (function ($) {
      */
     self.appendTo = function ($container) {
       $container.append(video);
+      $container.append(playButton);
     };
 
     /**
@@ -431,11 +445,20 @@ H5P.VideoHtml5 = (function ($) {
     self.on('stateChange', function (event) {
       var state = event.data;
       lastState = state;
+
       if (state === H5P.Video.BUFFERING) {
         $throbber.insertAfter(video);
-      }
-      else {
+      } else {
         $throbber.remove();
+      }
+
+      switch (state) {
+        case H5P.Video.PAUSED: 
+          $(playButton).removeClass('hide');
+          break;
+        case H5P.Video.PLAYING:
+          $(playButton).addClass('hide');
+          break;
       }
     });
     

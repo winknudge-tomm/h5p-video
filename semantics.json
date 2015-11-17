@@ -25,6 +25,13 @@
     "description": "Add controls to the video player. This allows users to play, pause, etc."
   },
   {
+    "name": "largePlay",
+    "type": "boolean",
+    "label": "Show large play button",
+    "default": false,
+    "description": "Shows a large play button over the top of the player."
+  },
+  {
     "name": "autoplay",
     "type": "boolean",
     "label": "Auto-play video",
