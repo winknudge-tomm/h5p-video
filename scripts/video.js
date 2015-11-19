@@ -102,6 +102,7 @@ H5P.Video = (function ($, ContentCopyrights, MediaCopyright, handlers) {
           handler.call(self, sources, {
             controls: parameters.controls,
             autoplay: parameters.autoplay,
+            autoProgress: parameters.autoProgress,
             largePlay: parameters.largePlay,
             loop: parameters.loop,
             fit: parameters.fit,

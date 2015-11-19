@@ -39,6 +39,13 @@
     "description": "Start playing the video automatically. May not work on mobile devices."
   },
   {
+    "name": "autoProgress",
+    "type": "boolean",
+    "label": "Auto-progress if Course Presentation",
+    "default": false,
+    "description": "If used in a course presentation, auto progress to the next slide on video complete"
+  },
+  {
     "name": "loop",
     "type": "boolean",
     "label": "Loop video",

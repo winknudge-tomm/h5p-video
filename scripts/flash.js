@@ -86,6 +86,9 @@ H5P.VideoFlash = (function ($) {
         },
         onFinish: function () {
           self.trigger('stateChange', H5P.Video.ENDED);
+          if(options.autoProgress) {
+            $(H5P).trigger( "presentation-progress" );
+          }
         },
         onError: function (code, message) {
           console.log('ERROR', code, message); // TODO

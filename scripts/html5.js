@@ -459,6 +459,11 @@ H5P.VideoHtml5 = (function ($) {
         case H5P.Video.PLAYING:
           $(playButton).addClass('hide');
           break;
+        case H5P.Video.ENDED:
+          if(options.autoProgress) {
+            $(H5P).trigger( "presentation-progress" );
+          }
+          break;
       }
     });
     
